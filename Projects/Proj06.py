@@ -97,59 +97,68 @@ def score_indel(Len_1,Len_2,str_chnge):
     Str_new5 =''
     similarity = 0
     dissimilarity =0
-    Len_1 = int(Len_1)
-    Len_2 = int(Len_2)
+
 
 #score for string 1
     if (str_chnge == 1)|(str_chnge == 2):
-
-       if (Len_1==Len_2):
-           for i,j in zip(Str_new1,Str_new2):
-               if i==j:
-                   Str_new4 += i.lower()
-                   Str_new5 += j.lower()
-                   similarity+=1
-               else:
-                   Str_new4 += i.upper()
-                   Str_new5 += j.upper()
-                   dissimilarity+=1
-
-       elif  Len_1 != Len_2:
-            Len_new = (Len_2 - Len_1)
-            if Len_1 > Len_2:
-                Str_new2 = Len_new * '-'
-            else:
-                if Len_2 > Len_1:
-
-
-
-
-
-       elif Len_1>Len_2:
-            Len_new = (Len_1 - Len_2)
-            Str_new6 =""
+        print Len_1
+        print Len_2
+        if Len_1==Len_2:
             for i,j in zip(Str_new1,Str_new2):
-               if i==j:
-                   Str_new4 += i.lower()
-                   Str_new5 += j.lower()
-                   similarity+=1
-               else:
-                   Str_new6 = Str_new4 + i.upper()
-                   #Str_new5 += j.upper()
-                   dissimilarity+=1
-            for k in range(Len_new):
-                Str_new5 =Str_new5 +'-'
-                Str_new4 = Str_new4+Str_new6
+                if i==j:
+                    Str_new4 += i.lower()
+                    Str_new5 += j.lower()
+                    similarity+=1
+                else:
+                    Str_new4 += i.upper()
+                    Str_new5 += j.upper()
+                    dissimilarity+=1
 
             print "The first sequence is : {}".format(Str_new4)
             print "The second sequence is : {}".format(Str_new5)
+            print "The similarity is:{}".format(similarity)
+            print "The dissimilarity is :{}".format(dissimilarity)
 
+        elif Len_1!=Len_2:
+            if Len_1>Len_2:
+                Len_new = Len_1 - Len_2
+                for k in range(Len_new):
+                    Str_new2 = Str_new2 + "-"
 
+                for i,j in zip(Str_new1,Str_new2):
+                    if i==j:
+                        Str_new4 += i.lower()
+                        Str_new5 += j.lower()
+                        similarity+=1
+                    else:
+                        Str_new4 += i.upper()
+                        Str_new5 += j.upper()
+                        dissimilarity+=1
 
-       #print "The first sequence is : {}".format(Str_new4)
-       #print "The second sequence is : {}".format(Str_new5)
-       #print "The similarity is:{}".format(similarity)
-       #print "The dissimilarity is :{}".format(dissimilarity)
+                print "The first sequence is : {}".format(Str_new4)
+                print "The second sequence is : {}".format(Str_new5)
+                print "The similarity is:{}".format(similarity)
+                print "The dissimilarity is :{}".format(dissimilarity)
+
+            elif Len_2>Len_1:
+                Len_new = Len_2 - Len_1
+                for k in range(Len_new):
+                    Str_new1 =Str_new1 + "-"
+                for i,j in zip(Str_new1,Str_new2):
+                    if i==j:
+                        Str_new4 += i.lower()
+                        Str_new5 += j.lower()
+                        similarity+=1
+                    else:
+                        Str_new4 += i.upper()
+                        Str_new5 += j.upper()
+                        dissimilarity+=1
+
+                print "The first sequence is : {}".format(Str_new4)
+                print "The second sequence is : {}".format(Str_new5)
+                print "The similarity is:{}".format(similarity)
+                print "The dissimilarity is :{}".format(dissimilarity)
+
 
 
 
